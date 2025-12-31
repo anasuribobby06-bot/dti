@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    char reversed[100];
+    int len = 0, vowels = 0;
+    
+    printf("Enter a string: ");
+    scanf("%s", str);
+    
+    // Calculate length and count vowels during traversal
+    while(str[len] != '\0') {
+        char ch = str[len];
+        if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+           ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+            vowels++;
+        }
+        len++;
+    }
+    
+    // Reverse string manually (no library functions)
+    for(int i = 0; i < len; i++) {
+        reversed[i] = str[len - 1 - i];
+    }
+    reversed[len] = '\0';
+    
+    // Check palindrome
+    int isPalindrome = 1;
+    for(int i = 0; i < len / 2; i++) {
+        if(str[i] != str[len - 1 - i]) {
+            isPalindrome = 0;
+            break;
+        }
+    }
+    
+    // Display results
+    printf("Original: %s\n", str);
+    printf("Reversed: %s\n", reversed);
+    printf("Vowels: %d\n", vowels);
+    printf("Palindrome: %s\n", isPalindrome ? "YES" : "NO");
+    
+    return 0;
+}

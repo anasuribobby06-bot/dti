@@ -1,0 +1,29 @@
+#include <stdio.h>  // Standard I/O library
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    
+    float arr[n];  // Variable-length array based on user input
+    printf("Enter %d elements: ", n);
+    
+    // Read elements into array
+    for(int i = 0; i < n; i++) {
+        scanf("%f", &arr[i]);
+    }
+    
+    float sum = 0;
+    float max = arr[0];
+    float min = arr[0];
+    
+    // Iterate once: compute sum and find max/min
+    for(int i = 0; i < n; i++) {
+        sum += arr[i];
+        if(arr[i] > max) max = arr[i];
+        if(arr[i] < min) min = arr[i];
+    }
+    
+    float average = sum / n;
+    
+    // Display results with 2 decimal pl
