@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors & Background</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        h1 { 
+            color: #fff; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 { color: #ffeaa7; }
+        p { 
+            color: #ddd; 
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+        .color-box {
+            background: #00b894;
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        form { background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; }
+        input { background: #fff; border: 2px solid #ffeaa7; }
+        input[type="submit"] { background: #e17055; border-color: #d63031; }
+    </style>
+</head>
+<body>
+    <h1>🌈 Colorful Web Page</h1>
+    
+    <p>Beautiful gradient backgrounds and contrasting text colors improve readability

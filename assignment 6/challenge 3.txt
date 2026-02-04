@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links & Images</title>
+</head>
+<body>
+    <h1>Interactive Web Page</h1>
+    <p>Click <a href="https://www.google.com">here to go to Google</a>.</p>
+    <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Badge">
+    <p>This image improves the user interface. Links make websites interactive.</p>
+</body>
+</html>

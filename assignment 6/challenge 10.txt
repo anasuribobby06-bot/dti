@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+        h1 { 
+            color: white; 
+            text-align: center; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+        }
+        .flex-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .flex-box {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        .box1 { border-left: 6px solid #00b894; }
+        .box2 { border-left: 6px solid #e17055; }
+        .demo-explanation {
+            background: rgba(255,255,255,0

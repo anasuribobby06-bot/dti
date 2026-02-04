@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 { 
+            color: white; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+        }
+        #counterDisplay {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 400px;
+            font-size: 4em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .counter-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        #increment { background: #00b894; color: white; min-width: 120px; }
+        #decrement { background: #e17055; color: white; min-width: 120px; }
+        #reset { background: #fdcb6e; color: #333; min-width: 120px; }
+        button:hover { transform: translateY(-3px); }
+        button:active { transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <h1>🔢 Simple Counter</h1>
+    
+    <div id="counterDis

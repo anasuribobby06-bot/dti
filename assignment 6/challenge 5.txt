@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms & CSS</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        h1 { color: #333; }
+        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        input[type="text"], input[type="email"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        input[type="submit"] { background: #007bff; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        input[type="submit"]:hover { background: #0056b3; }
+        h2 { color: #666; }
+    </style>
+</head>
+<body>
+    <h1>User Form</h1>
+    
+    <form action="#" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+    <h2>CSS Examples</h2>
+    <ul>
+        <li><strong>Inline:</strong> <span style="color: red; font-weight: bold;">Red text</span></li>
+        <li><strong>Internal:</strong> Above styles in &lt;style&gt; tag (preferred for single page)</li>
+        <li><strong>External:</strong> Link to separate .css file with &lt;link rel="stylesheet" href="styles.css"&gt;</li>
+    </ul>
+</body>
+</html>
