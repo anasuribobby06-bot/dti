@@ -1,0 +1,27 @@
+import time
+from functools import wraps
+
+def execution_time(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        end = time.perf_counter()
+        print(f"{func.__name__} took {end - start:.4f} seconds")
+        return result
+    return wrapper
+
+@execution_time
+def slow_function(n):
+    total = 0
+    for i in range(n):
+        total += i
+    return total
+
+@execution_time
+def multiply(a, b):
+    return a * b
+
+# Tests
+slow_function(1000000)  # Prints timing + returns sum
+result = multiply(5, 7)  # Prints timing + returns 35

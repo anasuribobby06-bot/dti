@@ -1,0 +1,31 @@
+import string
+from collections import Counter
+
+def top_words(filename, top_n=5):
+    try:
+        with open(filename, 'r') as f:
+            text = f.read().lower()
+        
+        # Remove punctuation and split into words
+        translator = str.maketrans('', '', string.punctuation)
+        clean_text = text.translate(translator)
+        words = clean_text.split()
+        
+        # Count frequencies
+        word_counts = Counter(words)
+        
+        # Get top N words
+        top_words = word_counts.most_common(top_n)
+        
+        for word, count in top_words:
+            print(f"{word}: {count}")
+            
+    except FileNotFoundError:
+        print(f"File '{filename}' not found.")
+
+# Test with sample text file content:
+# Save this as 'sample.txt':
+# Hello world! Hello Python. World is beautiful.
+# Python programming is fun. Hello again!
+
+top_words('sample.t

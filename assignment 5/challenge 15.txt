@@ -1,0 +1,25 @@
+import string
+import hashlib
+
+class MiniURLShortener:
+    def __init__(self):
+        self.url_mapping = {}  # short_key -> original_url
+        self.key_mapping = {}  # original_url -> short_key
+        self.counter = 0
+        self.chars = string.ascii_letters + string.digits  # a-zA-Z0-9 (62 chars)
+    
+    def shorten(self, long_url):
+        # Check if URL already exists
+        if long_url in self.key_mapping:
+            return f"https://mini.ly/{self.key_mapping[long_url]}"
+        
+        # Generate unique key using counter + base62
+        self.counter += 1
+        short_key = self._encode(self.counter)
+        
+        self.url_mapping[short_key] = long_url
+        self.key_mapping[long_url] = short_key
+        
+        return f"https://mini.ly/{short_key}"
+    
+    def expand(s

@@ -1,0 +1,16 @@
+def find_missing(arr):
+    n = len(arr) + 1  # Expected range: 1 to n+1
+    result = 0
+    
+    # XOR all array elements with 0
+    for num in arr:
+        result ^= num
+    
+    # XOR result with all numbers 1 to n+1
+    for i in range(1, n + 1):
+        result ^= i
+    
+    return result
+
+# Test
+print(find_missing([1, 2, 4, 5, 6]))  # Output: 3

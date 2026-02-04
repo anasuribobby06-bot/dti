@@ -1,0 +1,42 @@
+import threading
+import time
+
+def print_even(lock, counter, max_num):
+    while True:
+        with lock:
+            if counter[0] > max_num:
+                break
+            if counter[0] % 2 == 0:
+                print(f"Thread A: {counter[0]}")
+                counter[0] += 1
+            else:
+                lock.release()  # Let odd thread run
+                time.sleep(0.01)
+                continue
+
+def print_odd(lock, counter, max_num):
+    while True:
+        with lock:
+            if counter[0] > max_num:
+                break
+            if counter[0] % 2 == 1:
+                print(f"Thread B: {counter[0]}")
+                counter[0] += 1
+            else:
+                lock.release()  # Let even thread run
+                time.sleep(0.01)
+                continue
+
+if __name__ == "__main__":
+    max_num = 10
+    counter = [0]  # Mutable list for shared state
+    lock = threading.Lock()
+    
+    thread_a = threading.Thread(target=print_even, args=(lock, counter, max_num))
+    thread_b = threading.Thread(target=print_odd, args=(lock, counter, max_num))
+    
+    thread_a.start()
+    thread_b.start()
+    
+    thread_a.join()
+    thread_b.join()

@@ -1,0 +1,13 @@
+def char_frequency(s):
+    freq = {}
+    for char in s:
+        if char in freq:
+            freq[char] += 1
+        else:
+            freq[char] = 1
+    # Sort by character (keys) and format output
+    sorted_items = sorted(freq.items())
+    return ', '.join([f"{char}:{count}" for char, count in sorted_items])
+
+# Test
+print(char_frequency("banana"))  # Output: a:3, b:1, n:2

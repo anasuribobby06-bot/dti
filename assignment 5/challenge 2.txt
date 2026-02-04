@@ -1,0 +1,8 @@
+def reverse_words(sentence):
+    words = sentence.split()  # Split on whitespace
+    reversed_words = [word[::-1] for word in words]  # Reverse each word
+    return ' '.join(reversed_words)
+
+# Test
+print(reverse_words("Python is easy"))  # Output: nohtyP si ysae
+

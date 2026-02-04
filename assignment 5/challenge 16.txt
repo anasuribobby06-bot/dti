@@ -1,0 +1,46 @@
+import re
+from collections import Counter, defaultdict
+from datetime import datetime
+
+def analyze_log(filename):
+    ip_pattern = r'(\d+\.\d+\.\d+\.\d+)'
+    status_pattern = r'"\s(\d{3})\s'
+    time_pattern = r'\[(.*?)\]'
+    
+    ip_counter = Counter()
+    error_count = 0
+    requests_per_minute = defaultdict(int)
+    
+    with open(filename, 'r') as f:
+        for line in f:
+            # Extract IP
+            ip_match = re.search(ip_pattern, line)
+            if ip_match:
+                ip_counter[ip_match.group(1)] += 1
+            
+            # Count errors (4xx, 5xx)
+            status_match = re.search(status_pattern, line)
+            if status_match:
+                status = int(status_match.group(1))
+                if status >= 400:
+                    error_count += 1
+            
+            # Count requests per minute
+            time_match = re.search(time_pattern, line)
+            if time_match:
+                timestamp = time_match.group(1)
+                # Parse to minute-level
+                dt = datetime.strptime(timestamp, '%d/%b/%Y:%H:%M:%S %z')
+                minute_key = dt.strftime('%Y-%m-%d %H:%M')
+                requests_per_minute[minute_key] += 1
+    
+    # Results
+    most_frequent_ip = ip_counter.most_common(1)[0] if ip_counter else ("None", 0)
+    
+    print(f"Most frequent IP: {most_frequent_ip[0]} ({most_frequent_ip[1]} requests)")
+    print(f"Total errors: {error_count}")
+    print("\nRequests per minute (top 5):")
+    for minute, count in requests_per_minute.most_common(5):
+        print(f"  {minute}: {count}")
+
+# Sample log file content (save as 'ac
